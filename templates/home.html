@@ -1,12 +1,54 @@
+<!DOCTYPE html>
 <html>
-   <link rel="stylesheet" href="{{ url_for('static',    filename='css/home.css') }}">
-   <body>
-   <div class="container"> 
-        <form action = "/" method = "POST" 
-        enctype = "multipart/form-data">
-        <input class = "upload" type = "file" name = "file" />
-        <input type = "submit"/>
-     </form>
-   </div>
-   </body>
+<link rel="stylesheet" href="{{ url_for('static',    filename='css/home.css') }}">
+<body>
+    <div class="container">
+        <div class="box">
+            <center>
+                <form class="form" action="/" method="POST" enctype="multipart/form-data">
+                  <div class="upload-container">
+                    <label for="fileInput" class="upload-icon">&#x21E1;</label>
+                    <span class="file-name" id="fileName">No file selected</span>
+                    <input style="display: none;" type="file" id="fileInput" name="file" accept=".png, .jpg, .jpeg"
+                        onchange="checkFile()" />
+                    </div>
+                
+                    <input onclick="showLoader()" class="btn" type="submit" id="submitButton" disabled />
+                </form>
+            </center>
+        </div>
+        <div class="box1">
+            <center>
+                <h1>Result</h1>
+                <img id="loader" src="{{ url_for('static', filename='img/load.gif') }}" alt="Loader">
+                <br>
+                {% if error %}
+                <p>{{ error }}</p>
+                {% else %}
+                <img src="data:image/png;base64,{{ img }}" alt="Uploaded Image">
+                <p>Predicted Class: {{ result }}</p>
+                {% endif %}
+            </center>
+        </div>
+    </div>
+
+    <script>
+        function checkFile() {
+            var fileInput = document.getElementById('fileInput');
+            var submitButton = document.getElementById('submitButton');
+            var fileName = document.getElementById('fileName');
+            fileName.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file selected';
+            submitButton.disabled = !fileInput.value;
+        }
+
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+        }
+    </script>
+</body>
+
 </html>
