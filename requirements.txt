@@ -1,14 +1,9 @@
 Flask
-<<<<<<< HEAD
 keras
 pathlib
 base64
 Pillow
 time
 os
-=======
-Werkzeug
-gunicorn
->>>>>>> 5e9fa89 (code changes)
 numpy
 tensorflow
