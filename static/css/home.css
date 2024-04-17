@@ -1,0 +1,17 @@
+.home{
+    margin-top: 0%;
+
+}
+.upload{
+    padding: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: '100%';
+    
+
+}
+.container{
+    width: '50%';
+    flex: 1;
+    flex-direction: column;
+}

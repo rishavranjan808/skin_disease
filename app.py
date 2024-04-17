@@ -1,0 +1,70 @@
+from flask import Flask, jsonify, request, render_template
+import tensorflow as tf
+import numpy as np
+import os
+from keras.models import load_model
+import pathlib
+import base64
+
+
+app = Flask(__name__)
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+directory_path = os.getcwd()
+path = directory_path + "\\model_cpu_with_early_stopping.h5" 
+directory = directory_path + "\\skin_disease_augmented"  
+
+best_model = tf.keras.models.load_model(path)
+#print(path)
+print(directory)
+
+def get_class(directory):
+    data_dir = pathlib.Path(directory)
+    class_names = np.array(sorted([item.name for item in data_dir.glob("*")])) 
+    return class_names
+
+def load_and_resize_image(img_raw, size):
+    # Compile image
+    img = tf.image.decode_image(img_raw.read(), channels=3)  
+
+    # Resize image
+    img = tf.image.resize(img, [size, size])
+
+    # Scale the tensor
+    img = img / 255
+
+    return img
+
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method == 'GET':
+        return render_template("home.html")
+
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            resp = jsonify({'message': 'No file part in the request'})
+            resp.status_code = 400
+            return resp
+
+        f = request.files['file']
+        class_names = get_class(directory)
+
+        image = load_and_resize_image(f, 150)
+        pred = best_model.predict(tf.expand_dims(image, axis=0))
+
+        class_names = get_class(directory)
+        result_idx = pred[0].argmax()
+        if result_idx >= len(class_names):
+            return "Error: Predicted index out of range"
+
+        result = class_names[result_idx]
+    
+        img = base64.b64encode(image).decode('utf-8')
+           
+        
+        return render_template('results.html', img=img, result= result)
+    
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

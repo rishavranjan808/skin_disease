@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <h1>Result</h1>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
+    <!-- <img src="data:image/jpg;base64,{{ img }}" alt="Uploaded Image"> -->
+    <p>Predicted Class: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
