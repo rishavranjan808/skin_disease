@@ -1,4 +1,4 @@
-.home{
+.home {
     margin-top: 0%;
 }
 
@@ -14,8 +14,9 @@
     box-sizing: border-box;
     margin: 3px;
     border-radius: 5px;
-    background-color: #2B3990;
+    background-color: #62c4a6; /* Updated color */
     height: 500px;
+    font-family: Arial, sans-serif; /* Updated font */
 }
 
 .box1 {
@@ -25,28 +26,27 @@
     margin: 3px;
     border-radius: 5px;
     height: 500px;
-    background-color: #269CCE;
+    background-color: #f3a683; /* Updated color */
+    font-family: Arial, sans-serif; /* Updated font */
 }
 
-.form{
+.form {
     margin-top: 10px;
 }
 
-.upload{
-    /* width: 90%; */
-    /* padding-top: 30px;
-    padding-bottom: 30px;
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 4px; */
+.upload {
+    /* Styles removed */
 }
 
-.btn{
+.btn {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 90%;
     border-radius: 4px;
     border: 1px solid black;
+    background-color: #f9ca24; /* Updated color */
+    color: white; /* Updated color */
+    font-family: Arial, sans-serif; /* Updated font */
 }
 
 #loader {
@@ -57,7 +57,7 @@
 .upload-container {
     width: 90%;
     border: 1px dashed gray;
-    background-color: white;
+    background-color: #ecf0f1; /* Updated color */
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 5px;
@@ -69,11 +69,11 @@
 
 .upload-icon {
     font-size: 48px;
-    color: gray;
+    color: #95a5a6; /* Updated color */
     margin-bottom: 10px;
 }
 
 .file-name {
     font-size: 16px;
-    color: gray;
+    color: #95a5a6; /* Updated color */
 }

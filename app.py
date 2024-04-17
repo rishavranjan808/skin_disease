@@ -23,11 +23,11 @@ def get_class(directory):
     return class_names
 
 def load_and_resize_image(img_raw, size):
-    # Compile image
+    
     img = tf.image.decode_image(img_raw.read(), channels=3)
-    # Resize image
+    
     img = tf.image.resize(img, [size, size])
-    # Scale the tensor
+    
     img = img / 255
     return img
 

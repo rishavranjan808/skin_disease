@@ -19,14 +19,19 @@
         </div>
         <div class="box1">
             <center>
-                <h1>Result</h1>
+                <h1>Rare Skin Disease Detection</h1>
+                <h3>Author : Rishav Ranjan</h3>
+                <h4>A project for the degree of MSc Artificial Intelligence </h4>
+
+                
+                <h3>This project is based on the classification of rare skin diseases using machine learning algorithms and understanding their applicability in real-world.</h3> 
                 <img id="loader" src="{{ url_for('static', filename='img/load.gif') }}" alt="Loader">
                 <br>
                 {% if error %}
                 <p>{{ error }}</p>
                 {% else %}
                 <img src="data:image/png;base64,{{ img }}" alt="Uploaded Image">
-                <p>Predicted Class: {{ result }}</p>
+                <p>Disease Predicted: {{ result }}</p>
                 {% endif %}
             </center>
         </div>

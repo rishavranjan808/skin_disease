@@ -1,5 +1,9 @@
 Flask
-Werkzeug
-gunicorn
+keras
+pathlib
+base64
+Pillow
+time
+os
 numpy
 tensorflow
