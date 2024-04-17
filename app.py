@@ -12,7 +12,11 @@ import time
 app = Flask(__name__)
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 directory_path = os.getcwd()
+<<<<<<< HEAD
 path = directory_path + "\\VGG16_model.h5"
+=======
+path = directory_path + "\\model_cpu_with_early_stopping.h5"
+>>>>>>> 5e9fa89 (code changes)
 directory = directory_path + "\\skin_disease_augmented"
 best_model = tf.keras.models.load_model(path)
 print(directory)
@@ -23,11 +27,19 @@ def get_class(directory):
     return class_names
 
 def load_and_resize_image(img_raw, size):
+<<<<<<< HEAD
     
     img = tf.image.decode_image(img_raw.read(), channels=3)
     
     img = tf.image.resize(img, [size, size])
     
+=======
+    # Compile image
+    img = tf.image.decode_image(img_raw.read(), channels=3)
+    # Resize image
+    img = tf.image.resize(img, [size, size])
+    # Scale the tensor
+>>>>>>> 5e9fa89 (code changes)
     img = img / 255
     return img
 
