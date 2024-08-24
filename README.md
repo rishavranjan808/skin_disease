@@ -20,12 +20,7 @@ Data Augmentation: Techniques are necessary to address the scarcity of images fo
 ## Access:
 You can access and download the DermNet dataset for research purposes from the following link: [https://dermnetnz.org/image-library].
 
-This project focuses on the classification of rare skin diseases using machine learning algorithms and evaluates their applicability in real-world scenarios.
 
-## Overview:
-### Objective: The primary aim is to create a cost-effective method for skin disease detection using image processing and machine learning techniques.
-### Process: The process involves literature review, data augmentation, data processing, model training, and evaluation.
-### Challenges: Addressing issues related to class imbalance, label accuracy, and data augmentation are critical to the success of the project.
 For a video walkthrough of the project, visit: [https://youtu.be/Phx5LvqYRfM].
 
 
